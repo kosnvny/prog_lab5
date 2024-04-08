@@ -22,6 +22,7 @@ public class HeadCommand extends Command{
     @Override
     public void execute(String args) throws IllegalArguments {
         if (!args.isBlank()) throw new IllegalArguments("В команде head не должно быть аргументов");
+        if (collectionManager.getCollection().size() == 0) throw new IllegalArguments("В коллекции нет элементов!");
         console.println(collectionManager.head().toString());
     }
 }

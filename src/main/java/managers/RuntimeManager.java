@@ -6,8 +6,6 @@ import exceptions.*;
 import models.Person;
 import models.StudyGroup;
 
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 /**Класс для начала работы приложения*/
@@ -34,11 +32,16 @@ public class RuntimeManager {
                 if (e.getMessage().equals("Вы вышли из приложения с помощью команды exit")) {
                     console.println(e.getMessage());
                     break;
-                } else console.printError(e.getMessage());
+                } else if (e.getMessage().equals("Ввод отсутствует(")) {
+                    console.printError(e.getMessage());
+                    break;
+                }
+                else console.printError(e.getMessage());
             } catch (CommandDoesNotExist e) {
-                console.printError("В списке нет введённой команды");
+                console.printError("В списке нет введённой команды: " + e.getMessage());
             } catch (RecursionInScriptException e) {
                 console.printError("Найдена рекурсия в файлах. Невозможно выполнение команд(");
+                break;
             }
         }
     }
@@ -49,7 +52,7 @@ public class RuntimeManager {
      * @throws ForcedExit команда привела к окончанию работы программы
      * @throws IllegalArguments команда содержит неверные аргументы
      * @throws RecursionInScriptException в скрипте обнаружена рекурсия
-     * @throws InvalideForm форма заполнения объектов {@link StudyGroup}, {@link Person} или их составляющих
+     * @throws InvalideForm форма заполнения объектов {@link StudyGroup}, {@link Person} или их составляющих получила невалидные данные
      */
     public void launch(String[] userCommand) throws CommandDoesNotExist, ForcedExit, IllegalArguments, RecursionInScriptException, InvalideForm {
         if (userCommand[0].isEmpty()) return;

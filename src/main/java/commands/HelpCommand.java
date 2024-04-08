@@ -21,6 +21,6 @@ public class HelpCommand extends Command{
      */
     public void execute(String args) throws IllegalArguments {
         if (!args.isBlank()) throw new IllegalArguments("В команде help нет аргументов");
-        console.println(commandManager.getCommands().values().toString());
+        console.println(commandManager.getAllCommands());
     }
 }

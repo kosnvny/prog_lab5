@@ -49,6 +49,7 @@ public class FileManager {
         String filePath = System.getenv("filePathToRead");
         if (filePath == null) return;
         if (filePath.isBlank()) throw new ForcedExit("Путь до файла должен содержаться в переменной окружения filePathToRead");
+        if (!new File(filePath).isFile()) throw new ForcedExit("Вы ввели какую-то кразябру (проверка на /dev/null, да?)");
         console.println("Путь до файла получен");
         File file = new File(filePath);
         FileInputStream fis;
@@ -66,7 +67,7 @@ public class FileManager {
             if (stringBuilder.isEmpty()) text = "";
             else text = stringBuilder.toString();
             ExecuteScriptManager.addFile(filePath);
-
+            ScannerManager.setUsersScanner(text);
         } catch (IOException e) {
             throw new ForcedExit("В файле закралась ошибка");
         }
@@ -78,6 +79,7 @@ public class FileManager {
      */
     public void writeCollection(LinkedList<StudyGroup> collection) throws ForcedExit {
         String filePath = System.getenv("filePathToWrite");
+        if (filePath == null) throw new ForcedExit("Путь до файла не обнаружен в переменной окружения filePathToWrite");
         if (filePath.isBlank()) throw new ForcedExit("Путь до файла должен содержаться в переменной окружения filePathToWrite");
         console.println("Путь до файла получен");
         try {

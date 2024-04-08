@@ -69,6 +69,7 @@ public class CollectionManager {
                 + getCollectionSize() + ", дата последнего изменения: " + getLastInitTime() +
                 ", дата последнего сохранения: " + getLastSaveTime();
     }
+
     public int getCollectionSize() {
         return collection.size();
     }
@@ -102,7 +103,11 @@ public class CollectionManager {
         for(StudyGroup sG : collection) {
             semesters.add(sG.getSemesterEnum());
         }
-        return semesters.toString();
+        StringBuilder text = new StringBuilder();
+        for (Semester s: semesters) {
+            text.append(s.toString()).append(" ");
+        }
+        return text.toString();
     }
 
     /**Метод, считающий сколько элементов коллекции меньше заданного по полю Semester

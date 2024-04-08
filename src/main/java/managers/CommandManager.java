@@ -31,6 +31,14 @@ public class CommandManager {
         return commands;
     }
 
+    public String getAllCommands() {
+        StringBuilder text = new StringBuilder();
+        for (int i = 0; i < commands.size(); ++i) {
+            text.append(commands.get(i).getName()).append(commands.get(i).getDescription()).append("\n");
+        }
+        return text.toString();
+    }
+
     /** Выполнение полученной команды
      * @param name название команды
      * @param args аргументы
@@ -42,7 +50,7 @@ public class CommandManager {
      * */
     public void execute(String name, String args) throws CommandDoesNotExist, IllegalArguments, ForcedExit, RecursionInScriptException, InvalideForm {
         Command command = commands.get(name);
-        if (command == null) throw new CommandDoesNotExist();
+        if (command == null) throw new CommandDoesNotExist(name);
         command.execute(args);
     }
 }

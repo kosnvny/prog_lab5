@@ -18,7 +18,9 @@ public class Main {
         try {
             fileManager.readFile();
         } catch (ForcedExit e) {
+            console.printError(e.getMessage());
             console.println("пупупупу па па па");
+            System.exit(0);
         }
         commandManager.addCommands(List.of(new AddCommand(collectionManager, console),
                 new ClearCommand(collectionManager, console),
@@ -37,7 +39,7 @@ public class Main {
                 new ShowCommand(collectionManager, console),
                 new UpdateIDCommand(collectionManager, console)));
         collectionManager.addElement(new StudyGroup("52", new Coordinates(52, 0f), 52L, 1, FormOfEducation.DISTANCE_EDUCATION,
-                Semester.FOURTH, new Person("52", 52f, Colour.GREEN, Country.INDIA)));
+                Semester.FOURTH, new Person("52", 52f, Colour.GREEN, Country.INDIA))); // чтобы в коллекции УЖЕ хоть что-то было (я заколебалась придумывать имена)
         new RuntimeManager(commandManager, console).letsGo();
     }
 }
