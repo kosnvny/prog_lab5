@@ -17,7 +17,7 @@ public class LocalDateTimeChecker implements JsonSerializer<LocalDateTime>, Json
      * @return элемент в формате JSON*/
     @Override
     public JsonElement serialize(LocalDateTime date, Type typeOfSrc, JsonSerializationContext context) {
-        return new JsonPrimitive(date.format(DateTimeFormatter.ISO_LOCAL_DATE)); // "yyyy-mm-dd"
+        return new JsonPrimitive(date.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
     }
 
     /** Метод для десериализации JSON-элемента в дату

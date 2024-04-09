@@ -27,7 +27,7 @@ public class FormOfEducationForm extends Form<FormOfEducation>{
             try {
                 return FormOfEducation.valueOf(input.toUpperCase());
             } catch (IllegalArgumentException exception) {
-                console.printError("Такого цвета нет в списке");
+                console.printError("Такой формы обучения нет в списке");
                 if (FileManager.isIsItInFile()) console.printError("Невалидные значения для цвета в файле");
             }
         }

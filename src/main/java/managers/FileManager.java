@@ -8,6 +8,7 @@ import models.StudyGroup;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 
 /**Класс, работающий с файлом*/
@@ -20,7 +21,7 @@ public class FileManager {
     private final Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .serializeNulls()
-            .registerTypeAdapter(LocalDate.class, new LocalDateTimeChecker())
+            .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeChecker())
             .create();
     private static boolean isItInFile = false;
     private static String text;
@@ -82,17 +83,13 @@ public class FileManager {
         if (filePath == null) throw new ForcedExit("Путь до файла не обнаружен в переменной окружения filePathToWrite");
         if (filePath.isBlank()) throw new ForcedExit("Путь до файла должен содержаться в переменной окружения filePathToWrite");
         console.println("Путь до файла получен");
-        try {
-            OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(new File(filePath)));
+        try (OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(filePath))){
             osw.write(gson.toJson(collection));
             console.println("Коллекция записана в файл!");
         } catch (FileNotFoundException e) {
             throw new ForcedExit("Файл не был найден");
         } catch (IOException e) {
             throw new ForcedExit("Невозможно сохранить коллекцию в json-файл(");
-        } finally {
-            isItInFile = false;
         }
     }
-
 }

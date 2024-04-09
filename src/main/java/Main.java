@@ -43,3 +43,4 @@ public class Main {
         new RuntimeManager(commandManager, console).letsGo();
     }
 }
+//filePathToRead=C:\Users\lizun\Desktop\уник\прога\5\tests\test3.txt;

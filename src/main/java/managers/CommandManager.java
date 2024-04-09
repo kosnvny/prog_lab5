@@ -33,8 +33,9 @@ public class CommandManager {
 
     public String getAllCommands() {
         StringBuilder text = new StringBuilder();
-        for (int i = 0; i < commands.size(); ++i) {
-            text.append(commands.get(i).getName()).append(commands.get(i).getDescription()).append("\n");
+        for (String s : commands.keySet()) {
+            text.append(s).append(" ");
+            text.append(commands.get(s).getDescription()).append("\r\n");
         }
         return text.toString();
     }

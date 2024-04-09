@@ -27,7 +27,7 @@ public class SemesterForm extends Form<Semester>{
             try {
                 return Semester.valueOf(input.toUpperCase());
             } catch (IllegalArgumentException exception) {
-                console.printError("Такого цвета нет в списке");
+                console.printError("Такого семестра нет в списке");
                 if (FileManager.isIsItInFile()) console.printError("Невалидные значения для цвета в файле");
             }
         }

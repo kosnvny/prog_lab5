@@ -93,7 +93,7 @@ public class CollectionManager {
 
     /**Метод, удаляющий первый элемент коллекции*/
     public void removeFirstElement() {
-        collection.remove();
+        collection.remove(0);
         lastInitTime = LocalDateTime.now();
     }
 
@@ -138,11 +138,14 @@ public class CollectionManager {
     }
 
     /**Метод, удаляющий элемент по заданному айди
-     * @param id Айди, по которому нужно удалить элемент
-     * @return Строковое представление новой коллекции*/
+     * @param id Айди, по которому нужно удалить элемент*/
     public void removeByID(int id) throws IllegalArguments {
         if (checkIfExists(id)) {
-            collection.remove(id-1);
+            for (StudyGroup sG : collection) {
+                if (sG.getId() == id) {
+                    collection.remove(sG);
+                }
+            }
             lastInitTime = LocalDateTime.now();
         }
         else throw new IllegalArguments("Такого ID не существует");
@@ -155,7 +158,7 @@ public class CollectionManager {
     public String removeGreater(StudyGroup studyGroup) throws IllegalArguments {
         for(StudyGroup sG : collection) {
             if (studyGroup.compareTo(sG) < 0) {
-                removeByID(sG.getId());
+                collection.remove(sG);
             }
         }
         lastInitTime = LocalDateTime.now();
@@ -185,7 +188,8 @@ public class CollectionManager {
         if (checkIfExists(id)) {
             for(StudyGroup sG: collection) {
                 if (sG.getId() == id) {
-                    collection.set(id, studyGroup);
+                    studyGroup.setId(id);
+                    collection.set(collection.indexOf(sG), studyGroup);
                     break;
                 }
             }

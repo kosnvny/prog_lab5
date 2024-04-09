@@ -25,7 +25,7 @@ public class CountryForm extends Form<Country>{
             try{
                 return Country.valueOf(input.toUpperCase());
             } catch (IllegalArgumentException exception){
-                console.printError("Такого цвета нет в списке");
+                console.printError("Такой страны нет в списке");
                 if (FileManager.isIsItInFile()) console.printError("Невалидные значения для цвета в файле");
             }
         }
