@@ -127,8 +127,12 @@ public class CollectionManager {
     public String descendingOrder() {
         Collections.sort(collection);
         Collections.reverse(collection);
+        StringBuilder stringBuilder = new StringBuilder();
+        for (StudyGroup sG : collection) {
+            stringBuilder.append(sG.toString()).append("\n");
+        }
         lastInitTime = LocalDateTime.now();
-        return collection.toString();
+        return stringBuilder.toString();
     }
 
     /**Метод, возвращающий первый элемент коллекции

@@ -1,0 +1,15 @@
+add
+56
+56
+56
+56
+1
+DISTANCE_EDUCATION
+FOURTH
+56
+56
+white
+russia
+count_less_than_semester_enum first
+execute_script C:\Users\lizun\IdeaProjects\lab5n\src\main\resources\tests\test4.txt
+exit

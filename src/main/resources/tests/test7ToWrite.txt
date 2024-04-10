@@ -1,0 +1,22 @@
+[
+  {
+    "ID": 1,
+    "Name": "52",
+    "Coordinates": {
+      "x": 52.0,
+      "y": 0.0
+    },
+    "CreationDate": "2024-04-08T17:48:46.3535583",
+    "StudentsCount": 52,
+    "ShouldBeExpelled": 1,
+    "FormOfEducation": "DISTANCE_EDUCATION",
+    "SemesterEnum": "FOURTH",
+    "GroupAdmin": {
+      "Name": "52",
+      "Weight": 52.0,
+      "PassportID": "10026",
+      "HairColor": "GREEN",
+      "Nationality": "INDIA"
+    }
+  }
+]

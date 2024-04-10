@@ -1,9 +1,8 @@
 package exceptions;
 
-import java.io.IOException;
 
 /**Класс для исключения при нахождении рекурсии в скриптах*/
-public class RecursionInScriptException extends IOException {
+public class RecursionInScriptException extends Exception {
     public RecursionInScriptException() {
         super("Переданные скрипты вызывают друг друга и образуют цикл");
     }

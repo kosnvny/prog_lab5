@@ -7,12 +7,12 @@ import java.util.Stack;
 /**Класс для работы с вводом из файла*/
 public class ExecuteScriptManager implements UserInput{
     /**{@link Stack}, хранящий пути выполненных файлов*/
-    private static final Stack<String> filesToExecute = new Stack<>();
+    private static final ArrayDeque<String> filesToExecute = new ArrayDeque<>();
     /**{@link ArrayDeque}, хранящий файлы, которые мы использовали*/
     private static final ArrayDeque<BufferedReader> fileReaders = new ArrayDeque<>();
 
     /** Метод, запоминающий путь до файла и сам файл
-     * @param args
+     * @param args путь до файла
      * @throws FileNotFoundException Файл не найден*/
     public static void addFile(String args) throws FileNotFoundException {
         filesToExecute.push(new File(args).getAbsolutePath());
@@ -20,11 +20,10 @@ public class ExecuteScriptManager implements UserInput{
     }
 
     /** Метод, проверяющий скрипты на рекурсию
-     * @param args
-     * @return были ли мы в этом файле (1 - да, 0 - нет)*/
+     * @param args путь до файла
+     * @return были ли мы в этом файле (true - да, false - нет)*/
     public static boolean haveWeBeenInFile(String args) {
-        if (filesToExecute.search(new File(args)) == -1) return false;
-        return true;
+        return filesToExecute.contains(new File(args).getAbsolutePath());
     }
 
     /** Метод, возращающий следующую строку
@@ -41,6 +40,7 @@ public class ExecuteScriptManager implements UserInput{
         fileReaders.pop();
         filesToExecute.pop();
     }
+
 
     @Override
     public String nextLine() {

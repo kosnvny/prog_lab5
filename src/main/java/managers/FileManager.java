@@ -1,13 +1,14 @@
 package managers;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import commandLine.ExecuteScriptManager;
 import commandLine.Printable;
 import exceptions.ForcedExit;
+import exceptions.IllegalArguments;
 import models.StudyGroup;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
@@ -25,6 +26,8 @@ public class FileManager {
             .create();
     private static boolean isItInFile = false;
     private static String text;
+    private int start = 0;
+    private int end = 0;
     public FileManager(CollectionManager collectionManager, Printable console) {
         this.collectionManager = collectionManager;
         this.console = console;
@@ -50,7 +53,7 @@ public class FileManager {
         String filePath = System.getenv("filePathToRead");
         if (filePath == null) return;
         if (filePath.isBlank()) throw new ForcedExit("Путь до файла должен содержаться в переменной окружения filePathToRead");
-        if (!new File(filePath).isFile()) throw new ForcedExit("Вы ввели какую-то кразябру (проверка на /dev/null, да?)");
+        if (!new File(filePath).isFile()) throw new ForcedExit("Вы ввели какую-то кразябру");
         console.println("Путь до файла получен");
         File file = new File(filePath);
         FileInputStream fis;

@@ -1,0 +1,4 @@
+help
+info
+print_descending
+execute_script C:\Users\lizun\IdeaProjects\lab5n\src\main\resources\tests\test3.txt

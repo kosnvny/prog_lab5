@@ -42,8 +42,8 @@ public class ExecuteScriptCommand extends Command{
             for (String line = ExecuteScriptManager.readLine(); line != null; line = ExecuteScriptManager.readLine()) {
                 String[] commandToExecute = (line + " ").split(" ", 2);
                 if (commandToExecute[0].isBlank()) throw new CommandDoesNotExist("");
-                if (commandToExecute[0].equals("execute_script")) {
-                    if (ExecuteScriptManager.haveWeBeenInFile(args.trim())) throw new RecursionInScriptException();
+                if (commandToExecute[0].trim().equals("execute_script")) {
+                    if (ExecuteScriptManager.haveWeBeenInFile(new File(commandToExecute[1].trim()).getAbsolutePath())) throw new RecursionInScriptException();
                 }
                 console.println("А теперь выполняем команду " + commandToExecute[0]);
                 commandManager.execute(commandToExecute[0], commandToExecute[1]);

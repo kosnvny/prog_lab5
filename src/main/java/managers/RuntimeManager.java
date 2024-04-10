@@ -14,6 +14,7 @@ public class RuntimeManager {
     private CommandManager commandManager;
     /**Поле, отвечающее за вывод информации о работе команды*/
     private Printable console;
+    private String someCommands = "add update remove_by_id";
 
     public RuntimeManager(CommandManager commandManager, Console console) {
         this.commandManager = commandManager;
@@ -23,35 +24,20 @@ public class RuntimeManager {
     /**Метод, запускающий приложение*/
     public void letsGo() {
         try {
-            if (FileManager.isIsItInFile()) {
-                String file = FileManager.getText();
-                String[] text = file.split("\r\n");
-                int i = 0;
-                while (i < text.length) {
-                    if (text[i].equals("add")) {
-                        ScannerManager.setUsersScanner(makeString(text, i+1, i+12));
-                        this.launch(text[i].split(" ", 2));
-                        i = i + 12;
-                    } else if (text[i].equals("update")) {
-                        ScannerManager.setUsersScanner(makeString(text, i+1, i+12));
-                        this.launch(text[i].split(" ", 2));
-                        i = i + 12;
-                    } else if (text[i].equals("remove_greater")) {
-                        ScannerManager.setUsersScanner(makeString(text, i+1, i+12));
-                        this.launch(text[i].split(" ", 2));
-                        i = i + 12;
-                    } else {
-                        this.launch(text[i].split(" ", 2));
-                        i = i + 1;
-                    }
-                }
-            } else {
             Scanner userScanner = ScannerManager.getUsersScanner();
-                while (true) {
-                        if (!userScanner.hasNext()) throw new ForcedExit("Ввод отсутствует(");
-                        String userCommand = userScanner.nextLine().trim() + " "; // прибавляем пробел, чтобы split выдал два элемента в массиве
-                        this.launch(userCommand.split(" ", 2));
+            while (true) {
+                    if (!userScanner.hasNext()) throw new ForcedExit("Ввод отсутствует(");
+                    String userCommand = userScanner.nextLine().trim() + " "; // прибавляем пробел, чтобы split выдал два элемента в массиве
+                    if (FileManager.isIsItInFile()) {
+                        if (someCommands.contains(userCommand.split(" ", 2)[0])) {
+                            StringBuilder stringBuilder = new StringBuilder();
+                            for (int i = 0; i < 11; i++) {
+                                stringBuilder.append(userScanner.nextLine());
+                            }
+                            ScannerManager.setUsersScanner(stringBuilder.toString());
+                        }
                     }
+                    this.launch(userCommand.split(" ", 2));
                 }
         } catch (InvalideForm | IllegalArguments | ForcedExit e) {
             if (e.getMessage().equals("Вы вышли из приложения с помощью команды exit")) {
@@ -81,18 +67,6 @@ public class RuntimeManager {
     public void launch(String[] userCommand) throws CommandDoesNotExist, ForcedExit, IllegalArguments, RecursionInScriptException, InvalideForm {
         if (userCommand[0].isEmpty()) return;
         commandManager.execute(userCommand[0], userCommand[1]);
-    }
-
-    public String makeString(String[] text, int start, int end) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = start; i < end; i++) {
-            if (i != end - 1) {
-                stringBuilder.append(text[i]).append("\r\n");
-            } else {
-                stringBuilder.append(text[i]);
-            }
-        }
-        return stringBuilder.toString();
     }
 }
 

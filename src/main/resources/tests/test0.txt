@@ -1,0 +1,1 @@
+execute_script C:\Users\lizun\IdeaProjects\lab5n\src\main\resources\tests\test0.txt
