@@ -2,11 +2,10 @@ package commandLine;
 
 import java.io.*;
 import java.util.ArrayDeque;
-import java.util.Stack;
 
 /**Класс для работы с вводом из файла*/
 public class ExecuteScriptManager implements UserInput{
-    /**{@link Stack}, хранящий пути выполненных файлов*/
+    /**{@link ArrayDeque}, хранящий пути выполненных файлов*/
     private static final ArrayDeque<String> filesToExecute = new ArrayDeque<>();
     /**{@link ArrayDeque}, хранящий файлы, которые мы использовали*/
     private static final ArrayDeque<BufferedReader> fileReaders = new ArrayDeque<>();
