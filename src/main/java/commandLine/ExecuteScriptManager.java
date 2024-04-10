@@ -1,14 +1,14 @@
 package commandLine;
 
 import java.io.*;
-import java.util.ArrayDeque;
+import java.util.LinkedList;
 
 /**Класс для работы с вводом из файла*/
 public class ExecuteScriptManager implements UserInput{
-    /**{@link ArrayDeque}, хранящий пути выполненных файлов*/
-    private static final ArrayDeque<String> filesToExecute = new ArrayDeque<>();
-    /**{@link ArrayDeque}, хранящий файлы, которые мы использовали*/
-    private static final ArrayDeque<BufferedReader> fileReaders = new ArrayDeque<>();
+    /**{@link LinkedList}, хранящий пути выполненных файлов*/
+    private static final LinkedList<String> filesToExecute = new LinkedList<>();
+    /**{@link LinkedList}, хранящий файлы, которые мы использовали*/
+    private static final LinkedList<BufferedReader> fileReaders = new LinkedList<>();
 
     /** Метод, запоминающий путь до файла и сам файл
      * @param args путь до файла
