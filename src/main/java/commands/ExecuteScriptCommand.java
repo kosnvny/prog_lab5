@@ -9,18 +9,14 @@ import managers.FileManager;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
 
 /**
  * Класс команды execute_script*/
 public class ExecuteScriptCommand extends Command{
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     /**{@link CommandManager}, запускающий выполнение команд*/
-    private CommandManager commandManager;
+    private final CommandManager commandManager;
     /**{@link FileManager}, работающий с поступившем файлом*/
     public ExecuteScriptCommand(CommandManager commandManager, Printable console) {
         super("execute_script", "file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.");

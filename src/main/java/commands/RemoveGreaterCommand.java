@@ -5,17 +5,15 @@ import commandLine.Printable;
 import exceptions.IllegalArguments;
 import exceptions.InvalideForm;
 import managers.CollectionManager;
-import managers.ScannerManager;
-import models.StudyGroup;
 import models.formsForUser.*;
 
 import java.util.Scanner;
 
 public class RemoveGreaterCommand extends Command {
     /**{@link CollectionManager}, в котором хранится коллекция и с помощью которого выполняется команда*/
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     public RemoveGreaterCommand(CollectionManager collectionManager, Console console) {
         super("remove_greater", "{element} : удалить из коллекции все элементы, превышающие заданный");
         this.collectionManager = collectionManager;

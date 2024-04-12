@@ -1,13 +1,12 @@
 package models.formsForUser;
 
 import commandLine.*;
-import exceptions.InvalideForm;
 import managers.FileManager;
 import models.Coordinates;
 
 public class CoordinatesForm extends Form<Coordinates>{
-    private Printable console;
-    private UserInput userInput;
+    private final Printable console;
+    private final UserInput userInput;
     public CoordinatesForm(Printable console) {
         this.console = (FileManager.isIsItInFile() ? new BlankConsole() : console);
         this.userInput = (FileManager.isIsItInFile() ? new ExecuteScriptManager() : new ConsoleInput());

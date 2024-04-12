@@ -7,9 +7,9 @@ import managers.CommandManager;
 
 public class HelpCommand extends Command{
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     /**{@link CommandManager}, хранящий все команды*/
-    private CommandManager commandManager;
+    private final CommandManager commandManager;
     public HelpCommand(CommandManager commandManager, Console console) {
         super("help", "вывести справку по доступным командам");
         this.commandManager = commandManager;

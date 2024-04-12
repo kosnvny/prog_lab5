@@ -7,9 +7,9 @@ import models.Semester;
 
 public class CountLessThanSemesterEnumCommand extends Command{
     /**{@link CollectionManager}, в котором хранится коллекция и с помощью которого выполняется команда*/
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
     /***/
-    private Console console;
+    private final Console console;
     public CountLessThanSemesterEnumCommand(CollectionManager collectionManager, Console console) {
         super("count_less_than_semester_enum", " semesterEnum : вывести количество элементов, значение поля semesterEnum которых меньше заданного");
         this.collectionManager = collectionManager;

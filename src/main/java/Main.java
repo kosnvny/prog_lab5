@@ -17,6 +17,7 @@ public class Main {
         FileManager fileManager = new FileManager(collectionManager, console);
         try {
             fileManager.readFile();
+            fileManager.createObjects();
         } catch (ForcedExit e) {
             console.printError(e.getMessage());
             console.println("пупупупу па па па");
@@ -43,3 +44,5 @@ public class Main {
         new RuntimeManager(commandManager, console).letsGo();
     }
 }
+/*сделать апдейт айдишников
+* */

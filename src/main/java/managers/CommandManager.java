@@ -5,7 +5,6 @@ import exceptions.*;
 import models.Person;
 import models.StudyGroup;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -14,13 +13,13 @@ public class CommandManager {
     /**Отображение, хранящее как ключ строковое предствление команды, а как значение - саму команду*/
     private final HashMap<String, Command> commands = new HashMap<>();
     /** Добавление команды в отображение и коллекции
-     * @param command */
+     * @param command добавляемая команда*/
     public void addCommand(Command command) {
         commands.put(command.getName(), command);
     }
 
     /** Добавление коллекции команд
-     * @param commands */
+     * @param commands добавляемые команды*/
     public void addCommands(Collection<Command> commands) {
         for (Command c: commands) {
             this.commands.put(c.getName(), c);

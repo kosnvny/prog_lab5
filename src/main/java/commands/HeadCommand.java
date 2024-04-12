@@ -7,7 +7,7 @@ import managers.CollectionManager;
 
 public class HeadCommand extends Command{
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     /**{@link CollectionManager}, в котором хранится коллекция и с помощью которого выполняется команда*/
     private final CollectionManager collectionManager;
     public HeadCommand(CollectionManager collectionManager, Console console) {
@@ -22,7 +22,7 @@ public class HeadCommand extends Command{
     @Override
     public void execute(String args) throws IllegalArguments {
         if (!args.isBlank()) throw new IllegalArguments("В команде head не должно быть аргументов");
-        if (collectionManager.getCollection().size() == 0) throw new IllegalArguments("В коллекции нет элементов!");
+        if (collectionManager.getCollection().isEmpty()) throw new IllegalArguments("В коллекции нет элементов!");
         console.println(collectionManager.head().toString());
     }
 }

@@ -4,7 +4,7 @@ package commandLine;
 /**Класс консоли*/
 public class Console implements Printable{
     /** Метод вывода с переходом на следующую строку
-     * @param args
+     * @param args Передаваемые аргументы
      */
     @Override
     public void println(String args) {
@@ -12,7 +12,7 @@ public class Console implements Printable{
     }
 
     /** Метод вывода
-     * @param args
+     * @param args Передаваемые аргументы
      */
     @Override
     public void print(String args) {
@@ -20,7 +20,7 @@ public class Console implements Printable{
     }
 
     /** Метод вывода ошибок
-     * @param args
+     * @param args Передаваемые аргументы
      */
     @Override
     public void printError(String args) {

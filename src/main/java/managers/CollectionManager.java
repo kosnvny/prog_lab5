@@ -1,7 +1,6 @@
 package managers;
 
 import exceptions.IllegalArguments;
-import exceptions.InvalideForm;
 import models.Semester;
 import models.StudyGroup;
 
@@ -19,8 +18,8 @@ public class CollectionManager {
     /**Дата создания коллекции*/
     private LocalDateTime lastInitTime;
     /**Дата последнего сохранения*/
-    private LocalDateTime lastSaveTime;
-    private HashSet<Semester> semesters = new HashSet<>();
+    private final LocalDateTime lastSaveTime;
+    private final HashSet<Semester> semesters = new HashSet<>();
     public CollectionManager() {
         this.lastInitTime = LocalDateTime.now();
         this.lastSaveTime = null;
@@ -113,13 +112,14 @@ public class CollectionManager {
     /**Метод, считающий сколько элементов коллекции меньше заданного по полю Semester
      * @return Строковое представление количества элементов*/
     public String countLessThanSemester(Semester semester) {
-        Integer count = 0;
+        int count = 0;
         for(StudyGroup sG : collection) {
             if (sG.getSemesterEnum().ordinal() < semester.ordinal()) {
                 count++;
             }
         }
-        return count.toString();
+        Integer count1 = Integer.valueOf(count);
+        return count1.toString();
     }
 
     /**Метод, сортирующий коллекцию в обратном порядке

@@ -1,13 +1,12 @@
 package models.formsForUser;
 
 import commandLine.*;
-import exceptions.InvalideForm;
 import managers.FileManager;
 import models.Person;
 
 public class PersonForm extends Form<Person>{
-    private Printable console;
-    private UserInput userInput;
+    private final Printable console;
+    private final UserInput userInput;
     public PersonForm(Printable console) {
         this.console = (FileManager.isIsItInFile() ? new BlankConsole() : console);
         this.userInput = (FileManager.isIsItInFile() ? new ExecuteScriptManager() : new ConsoleInput());
@@ -15,8 +14,7 @@ public class PersonForm extends Form<Person>{
     /**
      * Абстрактный метод, "строящий" новый объект заданного типа
      *
-     * @return T
-     * @throws InvalideForm невалидные значения
+     * @return Person
      */
     @Override
     public Person build() {

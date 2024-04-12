@@ -3,7 +3,7 @@ package commandLine;
 /**Класс для "пустой" консоли, используется при вводе из файла*/
 public class BlankConsole implements Printable{
     /** Пустой метод вывода с переводом на следующую строку
-     * @param args
+     * @param args Передаваемые аргументы
      */
     @Override
     public void println(String args) {
@@ -11,7 +11,7 @@ public class BlankConsole implements Printable{
     }
 
     /** Пустой метод вывода
-     * @param args
+     * @param args Передаваемые аргументы
      */
     @Override
     public void print(String args) {
@@ -19,7 +19,7 @@ public class BlankConsole implements Printable{
     }
 
     /** Пустой метод вывода ошибок
-     * @param args
+     * @param args Передаваемые аргументы
      */
     @Override
     public void printError(String args) {

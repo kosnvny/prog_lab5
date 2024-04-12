@@ -6,19 +6,16 @@ import exceptions.IllegalArguments;
 import exceptions.InvalideForm;
 import managers.*;
 import models.*;
-import models.formsForUser.PersonForm;
 import models.formsForUser.StudyGroupForm;
 
-import java.util.HashMap;
-import java.util.Scanner;
 /**
  * Класс команды add
  * */
 public class AddCommand extends Command{
     /**{@link CollectionManager}, в котором хранится коллекция и с помощью которого выполняется команда*/
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     public AddCommand(CollectionManager collectionManager, Console console) {
         super("add", "{element} : добавить новый элемент в коллекцию");
         this.collectionManager = collectionManager;

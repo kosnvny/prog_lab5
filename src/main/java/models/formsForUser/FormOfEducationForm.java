@@ -1,14 +1,12 @@
 package models.formsForUser;
 
 import commandLine.*;
-import exceptions.InvalideForm;
 import managers.FileManager;
-import models.Country;
 import models.FormOfEducation;
 
 public class FormOfEducationForm extends Form<FormOfEducation>{
-    private Printable console;
-    private UserInput userInput;
+    private final Printable console;
+    private final UserInput userInput;
     public FormOfEducationForm(Printable console) {
         this.console = (FileManager.isIsItInFile() ? new BlankConsole() : console);
         this.userInput = (FileManager.isIsItInFile() ? new ExecuteScriptManager() : new ConsoleInput());

@@ -63,8 +63,7 @@ public class StudyGroup implements Validator, Comparable<StudyGroup> {
         if (this.name == null || this.name.isEmpty()) return false;
         if (this.coordinates == null) return false;
         if (this.studentsCount <= 0) return false;
-        if (this.shouldBeExpelled <= 0) return false;
-        return true;
+        return this.shouldBeExpelled > 0;
     }
     /** Метод, определяющий сортировку коллекции с объектами класса StudyGroup
      * @param o Объект класса StudyGroup, который нужно сравнить с данным

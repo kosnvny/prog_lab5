@@ -7,9 +7,9 @@ import managers.CollectionManager;
 
 public class InfoCommand extends Command {
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     /**{@link CollectionManager}, в котором хранится коллекция и с помощью которого выполняется команда*/
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
 
     public InfoCommand(CollectionManager collectionManager, Console console) {
         super("info", "вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)");

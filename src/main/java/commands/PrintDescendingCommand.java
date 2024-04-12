@@ -7,9 +7,9 @@ import managers.CollectionManager;
 
 public class PrintDescendingCommand extends Command{
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     /**{@link CollectionManager}, в котором хранится коллекция и с помощью которого выполняется команда*/
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
     public PrintDescendingCommand(CollectionManager collectionManager, Console console) {
         super("print_descending", "вывести элементы коллекции в порядке убывания");
         this.collectionManager = collectionManager;

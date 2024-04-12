@@ -7,9 +7,9 @@ import managers.CollectionManager;
 
 public class ClearCommand extends Command{
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     /**{@link CollectionManager}, в котором хранится коллекция и с помощью которого выполняется команда*/
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
     public ClearCommand(CollectionManager collectionManager, Console console) {
         super("clear", "очистить коллекцию");
         this.collectionManager = collectionManager;

@@ -7,9 +7,9 @@ import managers.CollectionManager;
 
 public class ShowCommand extends Command{
     /**{@link CollectionManager}, в котором хранится коллекция и с помощью которого выполняется команда*/
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     public ShowCommand(CollectionManager collectionManager, Console console) {
         super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении");
         this.collectionManager = collectionManager;

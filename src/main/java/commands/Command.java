@@ -8,20 +8,20 @@ import java.util.Objects;
  * Абстрактный класс для всех команд*/
 public abstract class Command {
     /**Название команды*/
-    private String name;
+    private final String name;
     /**Описание команды*/
-    private String description;
+    private final String description;
     public Command(String name, String description) {
         this.name = name;
         this.description = description;
     }
     /**Абстрактный метод для выполнения команды
      * @param args Аргументы команды
-     * @throws ForcedExit
-     * @throws IllegalArguments
-     * @throws RecursionInScriptException
-     * @throws CommandDoesNotExist
-     * @throws InvalideForm*/
+     * @throws ForcedExit Различные неурядицы
+     * @throws IllegalArguments Невалидные аргументы
+     * @throws RecursionInScriptException Рекурсия в скриптах
+     * @throws CommandDoesNotExist Команда не существует
+     * @throws InvalideForm Невалидные данные для форм*/
     public abstract void execute(String args) throws ForcedExit, IllegalArguments, RecursionInScriptException, CommandDoesNotExist, InvalideForm;
     public String getName() {
         return name;

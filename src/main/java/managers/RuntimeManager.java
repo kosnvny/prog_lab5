@@ -11,10 +11,9 @@ import java.util.Scanner;
 /**Класс для начала работы приложения*/
 public class RuntimeManager {
     /**{@link CommandManager}, в котором хранятся команды*/
-    private CommandManager commandManager;
+    private final CommandManager commandManager;
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
-    private String someCommands = "add update remove_by_id";
+    private final Printable console;
 
     public RuntimeManager(CommandManager commandManager, Console console) {
         this.commandManager = commandManager;
@@ -23,22 +22,22 @@ public class RuntimeManager {
 
     /**Метод, запускающий приложение*/
     public void letsGo() {
-        try {
-            Scanner userScanner = ScannerManager.getUsersScanner();
+        try (Scanner userScanner = ScannerManager.getUsersScanner()) {
             while (true) {
-                    if (!userScanner.hasNext()) throw new ForcedExit("Ввод отсутствует(");
-                    String userCommand = userScanner.nextLine().trim() + " "; // прибавляем пробел, чтобы split выдал два элемента в массиве
-                    if (FileManager.isIsItInFile()) {
-                        if (someCommands.contains(userCommand.split(" ", 2)[0])) {
-                            StringBuilder stringBuilder = new StringBuilder();
-                            for (int i = 0; i < 11; i++) {
-                                stringBuilder.append(userScanner.nextLine());
-                            }
-                            ScannerManager.setUsersScanner(stringBuilder.toString());
+                if (!userScanner.hasNext()) throw new ForcedExit("Ввод отсутствует(");
+                String userCommand = userScanner.nextLine().trim() + " "; // прибавляем пробел, чтобы split выдал два элемента в массиве
+                if (FileManager.isIsItInFile()) {
+                    String someCommands = "add update remove_by_id";
+                    if (someCommands.contains(userCommand.split(" ", 2)[0])) {
+                        StringBuilder stringBuilder = new StringBuilder();
+                        for (int i = 0; i < 11; i++) {
+                            stringBuilder.append(userScanner.nextLine());
                         }
+                        ScannerManager.setUsersScanner(stringBuilder.toString());
                     }
-                    this.launch(userCommand.split(" ", 2));
                 }
+                this.launch(userCommand.split(" ", 2));
+            }
         } catch (InvalideForm | IllegalArguments | ForcedExit e) {
             if (e.getMessage().equals("Вы вышли из приложения с помощью команды exit")) {
                 console.println(e.getMessage());
@@ -46,8 +45,7 @@ public class RuntimeManager {
             } else if (e.getMessage().equals("Ввод отсутствует(")) {
                 console.printError(e.getMessage());
                 System.exit(0);
-            }
-            else console.printError(e.getMessage());
+            } else console.printError(e.getMessage());
         } catch (CommandDoesNotExist e) {
             console.printError("В списке нет введённой команды: " + e.getMessage());
         } catch (RecursionInScriptException e) {

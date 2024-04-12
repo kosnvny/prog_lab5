@@ -7,9 +7,9 @@ import managers.CollectionManager;
 
 public class PrintUniqueSemesterEnumCommand extends Command{
     /**{@link CollectionManager}, в котором хранится коллекция и с помощью которого выполняется команда*/
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     public PrintUniqueSemesterEnumCommand(CollectionManager collectionManager, Console console) {
         super("print_unique_semester_enum", "вывести уникальные значения поля semesterEnum всех элементов в коллекции");
         this.collectionManager = collectionManager;

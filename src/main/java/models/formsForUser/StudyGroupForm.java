@@ -1,13 +1,12 @@
 package models.formsForUser;
 
 import commandLine.*;
-import exceptions.InvalideForm;
 import managers.FileManager;
 import models.StudyGroup;
 
 public class StudyGroupForm extends Form<StudyGroup> {
-    private Printable console;
-    private UserInput userInput;
+    private final Printable console;
+    private final UserInput userInput;
     public StudyGroupForm(Printable console) {
         this.console = (FileManager.isIsItInFile() ? new BlankConsole() : console);
         this.userInput = (FileManager.isIsItInFile() ? new ExecuteScriptManager() : new ConsoleInput());

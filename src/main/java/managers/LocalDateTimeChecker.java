@@ -12,8 +12,8 @@ public class LocalDateTimeChecker implements JsonSerializer<LocalDateTime>, Json
 
     /** Метод для сериализации дат
      * @param date дата
-     * @param context
-     * @param typeOfSrc
+     * @param context -
+     * @param typeOfSrc -
      * @return элемент в формате JSON*/
     @Override
     public JsonElement serialize(LocalDateTime date, Type typeOfSrc, JsonSerializationContext context) {
@@ -22,8 +22,8 @@ public class LocalDateTimeChecker implements JsonSerializer<LocalDateTime>, Json
 
     /** Метод для десериализации JSON-элемента в дату
      * @param json JSON-элемента
-     * @param type
-     * @param context
+     * @param type -
+     * @param context -
      * @return дата*/
     @Override
     public LocalDateTime deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException {

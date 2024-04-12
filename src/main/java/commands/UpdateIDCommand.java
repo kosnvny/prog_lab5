@@ -10,9 +10,9 @@ import models.formsForUser.StudyGroupForm;
 
 public class UpdateIDCommand extends Command{
     /**{@link CollectionManager}, в котором хранится коллекция и с помощью которого выполняется команда*/
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     public UpdateIDCommand(CollectionManager collectionManager, Console console) {
         super("update", "id {element} : обновить значение элемента коллекции, id которого равен заданному");
         this.collectionManager = collectionManager;

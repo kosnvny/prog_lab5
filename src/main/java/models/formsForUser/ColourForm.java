@@ -1,13 +1,12 @@
 package models.formsForUser;
 
 import commandLine.*;
-import exceptions.InvalideForm;
 import managers.FileManager;
 import models.Colour;
 
 public class ColourForm extends Form<Colour> {
-    private Printable console;
-    private UserInput userInput;
+    private final Printable console;
+    private final UserInput userInput;
     public ColourForm(Printable console) {
         this.console = (FileManager.isIsItInFile() ? new BlankConsole() : console);
         this.userInput = (FileManager.isIsItInFile() ? new ExecuteScriptManager() : new ConsoleInput());

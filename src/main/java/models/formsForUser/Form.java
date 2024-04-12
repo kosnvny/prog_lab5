@@ -1,6 +1,5 @@
 package models.formsForUser;
 
-import exceptions.IllegalArguments;
 import exceptions.InvalideForm;
 /**Абстрактный метод для форм*/
 public abstract class Form<T> {

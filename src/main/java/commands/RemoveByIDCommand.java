@@ -7,9 +7,9 @@ import managers.CollectionManager;
 
 public class RemoveByIDCommand extends Command {
     /**{@link CollectionManager}, в котором хранится коллекция и с помощью которого выполняется команда*/
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
     /**Поле, отвечающее за вывод информации о работе команды*/
-    private Printable console;
+    private final Printable console;
     public RemoveByIDCommand(CollectionManager collectionManager, Console console) {
         super("remove_by_id", "id : удалить элемент из коллекции по его id");
         this.collectionManager = collectionManager;

@@ -6,7 +6,7 @@
       "x": 52.0,
       "y": 0.0
     },
-    "CreationDate": "2024-04-08T17:48:46.3535583",
+    "CreationDate": "2024-04-10T14:55:08.6320053",
     "StudentsCount": 52,
     "ShouldBeExpelled": 1,
     "FormOfEducation": "DISTANCE_EDUCATION",
@@ -17,6 +17,26 @@
       "PassportID": "10026",
       "HairColor": "GREEN",
       "Nationality": "INDIA"
+    }
+  },
+  {
+    "ID": 2,
+    "Name": "adsfgkjl;;",
+    "Coordinates": {
+      "x": 1.3245679E8,
+      "y": 3.421568E8
+    },
+    "CreationDate": "2024-04-10T14:57:00.0945046",
+    "StudentsCount": 243546787,
+    "ShouldBeExpelled": 98765,
+    "FormOfEducation": "DISTANCE_EDUCATION",
+    "SemesterEnum": "SECOND",
+    "GroupAdmin": {
+      "Name": "dfxgio",
+      "Weight": 1.234568E9,
+      "PassportID": "110291",
+      "HairColor": "RED",
+      "Nationality": "ITALY"
     }
   }
 ]
