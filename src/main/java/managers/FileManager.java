@@ -90,6 +90,7 @@ public class FileManager {
             if (jsonString.isEmpty()) jsonString = new StringBuilder("[]");
             LinkedList<StudyGroup> collection = gson.fromJson(jsonString.toString(), collectionType);
             collectionManager.addElements(collection);
+            StudyGroup.updateID(collection);
             console.println("Коллекция успешна загружена!");
         } catch (FileNotFoundException e) {
             throw new ForcedExit("Файл не найден");

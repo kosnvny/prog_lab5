@@ -3,6 +3,7 @@ package models;
 import com.google.gson.annotations.SerializedName;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Objects;
 
 /**Функциональный интерфейс для сортировки*/
@@ -52,8 +53,18 @@ public class StudyGroup implements Validator, Comparable<StudyGroup> {
         this.semesterEnum = semesterEnum;
         this.groupAdmin = groupAdmin;
     }
-    public int incNewID(){
+    private int incNewID(){
         return ++newId;
+    }
+
+    public static void updateID(Collection<StudyGroup> collection) {
+        int maxx = 0;
+        for(StudyGroup sG : collection) {
+            if (sG.getId() > maxx) {
+                maxx = sG.getId();
+            }
+        }
+        newId = maxx;
     }
 
     /** Метод проверяющий правильность полей
