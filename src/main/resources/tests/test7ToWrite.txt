@@ -38,5 +38,45 @@
       "HairColor": "RED",
       "Nationality": "ITALY"
     }
+  },
+  {
+    "ID": 3,
+    "Name": "52",
+    "Coordinates": {
+      "x": 52.0,
+      "y": 0.0
+    },
+    "CreationDate": "2024-04-20T18:02:43.0875383",
+    "StudentsCount": 52,
+    "ShouldBeExpelled": 1,
+    "FormOfEducation": "DISTANCE_EDUCATION",
+    "SemesterEnum": "FOURTH",
+    "GroupAdmin": {
+      "Name": "52",
+      "Weight": 52.0,
+      "PassportID": "10026",
+      "HairColor": "GREEN",
+      "Nationality": "INDIA"
+    }
+  },
+  {
+    "ID": 4,
+    "Name": "кринжульки",
+    "Coordinates": {
+      "x": 45.0,
+      "y": 45.0
+    },
+    "CreationDate": "2024-04-20T18:03:39.1775265",
+    "StudentsCount": 65,
+    "ShouldBeExpelled": 1,
+    "FormOfEducation": "EVENING_CLASSES",
+    "SemesterEnum": "SIXTH",
+    "GroupAdmin": {
+      "Name": "riuhdfyu",
+      "Weight": 45682.0,
+      "PassportID": "110291",
+      "HairColor": "WHITE",
+      "Nationality": "UNITED_KINGDOM"
+    }
   }
 ]

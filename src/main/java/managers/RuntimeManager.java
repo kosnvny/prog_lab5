@@ -38,9 +38,12 @@ public class RuntimeManager {
                 }
                 this.launch(userCommand.split(" ", 2));
             }
+        } catch (NullPointerException e) {
+            console.print("Выход из приложения!");
+            System.exit(0);
         } catch (InvalideForm | IllegalArguments | ForcedExit e) {
             if (e.getMessage().equals("Вы вышли из приложения с помощью команды exit")) {
-                console.println(e.getMessage());
+                console.print(e.getMessage());
                 System.exit(0);
             } else if (e.getMessage().equals("Ввод отсутствует(")) {
                 console.printError(e.getMessage());

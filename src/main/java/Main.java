@@ -44,5 +44,3 @@ public class Main {
         new RuntimeManager(commandManager, console).letsGo();
     }
 }
-/*сделать апдейт айдишников
-* */

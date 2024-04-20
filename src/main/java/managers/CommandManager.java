@@ -12,6 +12,7 @@ import java.util.HashMap;
 public class CommandManager {
     /**Отображение, хранящее как ключ строковое предствление команды, а как значение - саму команду*/
     private final HashMap<String, Command> commands = new HashMap<>();
+
     /** Добавление команды в отображение и коллекции
      * @param command добавляемая команда*/
     public void addCommand(Command command) {

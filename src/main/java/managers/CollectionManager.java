@@ -78,8 +78,10 @@ public class CollectionManager {
      * */
     public String show() {
         StringBuilder stringBuilder = new StringBuilder();
-        for(StudyGroup sG: collection) {
-            stringBuilder.append(sG.toString()).append("\n");
+        StudyGroup studyGroup = collection.getLast();
+        for (StudyGroup sG : collection) {
+            if (sG == studyGroup) stringBuilder.append(sG.toString());
+            else stringBuilder.append(sG.toString()).append("\n");
         }
         return stringBuilder.toString();
     }
@@ -118,8 +120,7 @@ public class CollectionManager {
                 count++;
             }
         }
-        Integer count1 = Integer.valueOf(count);
-        return count1.toString();
+        return Integer.toString(count);
     }
 
     /**Метод, сортирующий коллекцию в обратном порядке
@@ -127,9 +128,11 @@ public class CollectionManager {
     public String descendingOrder() {
         Collections.sort(collection);
         Collections.reverse(collection);
+        StudyGroup studyGroup = collection.getLast();
         StringBuilder stringBuilder = new StringBuilder();
         for (StudyGroup sG : collection) {
-            stringBuilder.append(sG.toString()).append("\n");
+            if (sG == studyGroup) stringBuilder.append(sG.toString());
+            else stringBuilder.append(sG.toString()).append("\n");
         }
         lastInitTime = LocalDateTime.now();
         return stringBuilder.toString();
@@ -159,7 +162,7 @@ public class CollectionManager {
      * @param studyGroup Элемент, с которым сравниваем все элементы коллекции
      * @return Строковое представление новой коллекции
      * */
-    public String removeGreater(StudyGroup studyGroup) throws IllegalArguments {
+    public String removeGreater(StudyGroup studyGroup) {
         for(StudyGroup sG : collection) {
             if (studyGroup.compareTo(sG) < 0) {
                 collection.remove(sG);

@@ -53,6 +53,7 @@ public class StudyGroup implements Validator, Comparable<StudyGroup> {
         this.semesterEnum = semesterEnum;
         this.groupAdmin = groupAdmin;
     }
+
     private int incNewID(){
         return ++newId;
     }
