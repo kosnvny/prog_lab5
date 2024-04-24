@@ -24,7 +24,7 @@ public class StudyGroupForm extends Form<StudyGroup> {
     }
 
     private String askName() {
-        console.println("Введите название группы");
+        console.println("Введите название группы, требование: не должно быть пустым или пробелом");
         while (true) {
             String input = userInput.nextLine();
             if (!input.isBlank()) return input;
@@ -33,7 +33,7 @@ public class StudyGroupForm extends Form<StudyGroup> {
     }
 
     private long askCount() {
-        console.println("Введите количество учащихся");
+        console.println("Введите количество учащихся, требование: должно быть больше 0");
         while (true) {
             String input = userInput.nextLine();
             try {
@@ -47,7 +47,7 @@ public class StudyGroupForm extends Form<StudyGroup> {
     }
 
     private int askExpelled() {
-        console.println("Введите количество студентов на отчисление");
+        console.println("Введите количество студентов на отчисление, требования: должно быть больше 0");
         while (true) {
             String input = userInput.nextLine();
             try {

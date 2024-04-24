@@ -6,6 +6,7 @@ import exceptions.*;
 import models.Person;
 import models.StudyGroup;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**Класс для начала работы приложения*/
@@ -38,7 +39,7 @@ public class RuntimeManager {
                 }
                 this.launch(userCommand.split(" ", 2));
             }
-        } catch (NullPointerException e) {
+        } catch (NoSuchElementException e) {
             console.print("Выход из приложения!");
             System.exit(0);
         } catch (InvalideForm | IllegalArguments | ForcedExit e) {

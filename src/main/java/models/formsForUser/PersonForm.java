@@ -22,7 +22,7 @@ public class PersonForm extends Form<Person>{
     }
 
     private String askName() {
-        console.println("Пожалуйста, введите имя человека");
+        console.println("Пожалуйста, введите имя человека, требования: не должно быть пустым или null");
         while (true) {
             String input = userInput.nextLine();
             if (!input.isBlank()) return input;
@@ -31,7 +31,7 @@ public class PersonForm extends Form<Person>{
     }
 
     private float askWeight() {
-        console.println("Пожалуйста, введите вес");
+        console.println("Пожалуйста, введите вес, требование: должен быть больше 0");
         while (true) {
             String input = userInput.nextLine();
             try {

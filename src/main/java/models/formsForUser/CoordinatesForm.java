@@ -35,7 +35,7 @@ public class CoordinatesForm extends Form<Coordinates>{
     }
 
     private float askY() {
-        console.println("Пожалуйста, введите координату Y");
+        console.println("Пожалуйста, введите координату Y, требование: координата Y должна быть > -964");
         while (true) {
             String input = userInput.nextLine();
             try {

@@ -74,7 +74,7 @@ public class FileManager {
 
     /**Метод для создания объектов из файла*/
     public void createObjects() throws ForcedExit {
-        String filePath = System.getenv("filePathForObjects");
+        String filePath = System.getenv("filePathToWrite");
         if (filePath == null) return;
         if (filePath.isBlank()) throw new ForcedExit("Путь до файла должен содержаться в переменной окружения filePathForObjects");
         if (!new File(filePath).isFile()) throw new ForcedExit("Вы ввели какую-то кразябру");
