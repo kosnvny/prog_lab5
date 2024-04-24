@@ -7,6 +7,8 @@ import exceptions.IllegalArguments;
 import managers.CollectionManager;
 import managers.FileManager;
 
+import java.time.LocalDateTime;
+
 public class SaveCommand extends Command{
     /**{@link FileManager}, работающий с файлом*/
     private final FileManager fileManager;
@@ -28,6 +30,7 @@ public class SaveCommand extends Command{
     public void execute(String args) throws IllegalArguments, ForcedExit {
         if (!args.isBlank()) throw new IllegalArguments("В команде save нет аргументов");
         fileManager.writeCollection(collectionManager.getCollection());
+        collectionManager.setLastSaveTime(LocalDateTime.now());
         console.println("Коллекция в файле!");
     }
 }

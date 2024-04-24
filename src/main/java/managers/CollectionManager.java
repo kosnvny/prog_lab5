@@ -18,7 +18,7 @@ public class CollectionManager {
     /**Дата создания коллекции*/
     private LocalDateTime lastInitTime;
     /**Дата последнего сохранения*/
-    private final LocalDateTime lastSaveTime;
+    private LocalDateTime lastSaveTime;
     private final HashSet<Semester> semesters = new HashSet<>();
     public CollectionManager() {
         this.lastInitTime = LocalDateTime.now();
@@ -61,6 +61,11 @@ public class CollectionManager {
     public String getCollectionType() {
         return collection.getClass().getName();
     }
+
+    public void setLastSaveTime(LocalDateTime lastSaveTime) {
+        this.lastSaveTime = lastSaveTime;
+    }
+
     /**Метод, выводящий информацию о коллекции (тип, размер, дата последнего изменения, дата последнего сохранения)
      * @return строковое представление информации о коллекции*/
     public String info() {

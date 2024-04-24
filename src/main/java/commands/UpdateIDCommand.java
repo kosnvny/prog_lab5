@@ -28,8 +28,12 @@ public class UpdateIDCommand extends Command{
         if (args.isBlank()) throw new IllegalArguments("В команде update должны быть непустые аргументы");
         try {
             int id = Integer.parseInt(args.trim());
-            collectionManager.updateID(id, new StudyGroupForm(console).build());
-            console.println("Элемент коллекции с заданным id был обновлён");
+            if (collectionManager.checkIfExists(id)) {
+                collectionManager.updateID(id, new StudyGroupForm(console).build());
+                console.println("Элемент коллекции с заданным id был обновлён");
+            } else {
+                throw new IllegalArguments("Данный id не существует");
+            }
         } catch (NumberFormatException e) {
             throw new IllegalArguments("id должен быть целочисленным");
         }
